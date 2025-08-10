@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Clark — Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="ratwing.png">
+</head>
+<body>
+  <canvas id="snow-canvas"></canvas>
+<script>
+const canvas = document.getElementById("snow-canvas");
+const ctx = canvas.getContext("2d");
+
+let width = window.innerWidth;
+let height = window.innerHeight;
+canvas.width = width;
+canvas.height = height;
+
+let snowflakes = [];
+
+function createSnowflakes() {
+  const x = Math.random() * width;
+  const y = Math.random() * height;
+  const radius = Math.random() * 3 + 1;
+  const speed = Math.random() + 0.5;
+  snowflakes.push({ x, y, radius, speed });
+}
+
+function drawSnowflakes() {
+  ctx.clearRect(0, 0, width, height);
+  ctx.fillStyle = "white";
+  ctx.beginPath();
+  for (let flake of snowflakes) {
+    ctx.moveTo(flake.x, flake.y);
+    ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
+  }
+  ctx.fill();
+}
+
+function moveSnowflakes() {
+  for (let flake of snowflakes) {
+    flake.y += flake.speed;
+    if (flake.y > height) {
+      flake.y = 0;
+      flake.x = Math.random() * width;
+    }
+  }
+}
+
+function updateSnowfall() {
+  drawSnowflakes();
+  moveSnowflakes();
+  requestAnimationFrame(updateSnowfall);
+}
+
+window.addEventListener("resize", () => {
+  width = window.innerWidth;
+  height = window.innerHeight;
+  canvas.width = width;
+  canvas.height = height;
+});
+
+for (let i = 0; i < 100; i++) {
+  createSnowflakes();
+}
+
+updateSnowfall();
+</script>
+
+  <!-- optional: video background -->
+  <div class="bg-video">
+    <video autoplay muted loop playsinline id="bgvid">
+      <source src="visions.mp4" type="video/mp4">
+    </video>
+    <div class="bg-overlay"></div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-grid">
+      <div class="brand">
+        <h1>Clark Edvard Montecillo Flores<span class="accent">.</span></h1>
+        <small class="tag">Web & Software • IT Grad</small>
+      </div>
+
+      <nav class="nav" aria-label="Main">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+   <section id="hero" class="hero container">
+    <div class="hero-card">
+      <h2 class="hero-title">
+        <span id="line1" class="typing-line"></span>
+        <span id="line2" class="typing-line highlight"></span>
+        <span class="cursor">|</span>
+      </h2>
+    <p class="lead">Frontend • Backend • Systems • Applications & Websites</p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn">View Projects</a>
+      <a href="#contact" class="btn ghost">Contact Me</a>
+    </div>
+  </div>
+
+  <div class="hero-visual" aria-hidden="true">
+    <div class="cube-wrap">
+      <div class="cube">
+        <div class="face f1">JS</div>
+        <div class="face f2">HTML</div>
+        <div class="face f3">CSS</div>
+        <div class="face f4">DB</div>
+        <div class="face f5">API</div>
+        <div class="face f6">UI</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="script.js"></script>
+
+
+   
+
+<section id="about" class="section container about-section">
+     <section id="about" class="about-section">
+        
+  <div class="about-card glass">
+      <div class="avatar-wrap">
+      <div class="avatar-frame">
+        <img src="pogi1.jpeg" alt="Clark Edvard Flores" class="avatar">
+      </div>
+    </div>
+  <div class="about-content">
+    <!-- Left side: Picture -->
+  
+
+          <div class="about-text">
+            <h2>About Me</h2>
+            </div>
+            <p class="highlight">I’m a graduate of Our Lady of Fatima University – Quezon City, with a degree in Information Technology. I focus on building efficient, maintainable applications, prototyping quickly, testing often, and solving real business problems through code.</p>
+            <ul class="skills">
+              <li>Java / PHP / MySQL</li>
+              <li>HTML5 / CSS3 / JS</li>
+              <li>Android, Swing, Web apps</li>
+              <a href="aboutme.html" class="contact-btn instagram">
+              <i class=""></i> see more about me....
+             </a>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+</section>
+
+    
+
+    <!-- PROJECTS -->
+  
+
+    <section id="projects" class="section container">
+       <div class="about-text text-center">
+  <h2 class="section-title">Projects</h2>
+</div>
+
+      <div class="projects-grid">
+        <!-- Project Card (repeat for each project) -->
+       <!-- Project Card -->
+<article class="project-card" tabindex="0">
+  <div class="card-inner">
+    
+       <img src="project1.jpeg" alt="K" class="card-media">
+      
+    </video>
+    <div class="card-badge">Fullstack</div>
+    <h3 class="card-title">KidsApp</h3>
+    <p class="card-desc">
+      Developed an Android app for kids that plays animal sounds as clues.
+      Users spell the animal's name by selecting letters to match the image shown.
+      Built in Android Studio using Kotlin and XML.
+    </p>
+    <div class="card-actions">
+      <button class="open-modal" data-src="project1.mp4">Open</button>
+      <a class="view-link" href="project1.mp4" target="_blank" rel="noopener">New Tab</a>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+        <article class="project-card" data-link="https://olfu-1967.github.io/olfuqc_map/lagro.html" tabindex="0">
+          <div class="card-inner">
+            <img src="project2.png" alt="Campus Map" class="card-media">
+            <div class="card-badge">Interactive</div>
+            <h3 class="card-title">Interactive Campus Map</h3>
+            <p class="card-desc">Map pins with popups, images and routing for OLFU QC project.</p>
+            <div class="card-actions">
+              <button class="open-modal" data-src="https://olfu-1967.github.io/olfuqc_map/lagro.html">Open</button>
+              <a class="view-link" href="https://olfu-1967.github.io/olfuqc_map/lagro.html" target="_blank" rel="noopener">New Tab</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- add more project cards as needed -->
+      </div>
+    </section>
+
+    <!-- Add Font Awesome CDN in <head> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- CONTACT -->
+<section id="contact" class="section container contact-section">
+  <div class="about-text text-center">
+    <h2 class="section-title">Contact</h2>
+    
+  </div>
+
+  <div class="contact-links">
+    <a href="https://www.instagram.com/direct/inbox/" target="_blank" class="contact-btn instagram">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+    <a href="https://www.facebook.com/sazkieycurtis" target="_blank" class="contact-btn facebook">
+      <i class="fab fa-facebook"></i> Facebook
+    </a>
+    <a href="https://mail.google.com/mail/u/0/#inbox" class="contact-btn email">
+      <i class="fas fa-envelope"></i> Email
+    </a>
+    <a  class="contact-btn phone">
+      <i class="fas fa-phone"></i> Mobile Number: 09075116884(TNT)
+    </a>
+  </div>
+</section>
+
+<!-- CSS -->
+<style>
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+  .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.5rem;
+    border-radius: 50px;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.2s ease, background 0.3s ease;
+  }
+  .contact-btn i {
+    font-size: 1.2rem;
+  }
+  .contact-btn:hover {
+    transform: translateY(-3px);
+  }
+  /* Specific button colors */
+  .instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+  .facebook { background: #1877f2; }
+  .email { background: #ea4335; }
+  .phone { background: #34a853; }
+</style>
+
+
+  </main>
+ 
+  
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Clark Edvard Flores — Built with code & ☕</p>
+    </div>
+  </footer>
+
+  <!-- Modal viewer -->
+  <!-- Modal viewer -->
+<!-- Modal viewer -->
+<div class="modal" id="projectModal" aria-hidden="true" role="dialog" aria-label="Project viewer">
+  <div class="modal-content">
+    <button class="modal-close" aria-label="Close">✕</button>
+
+    <!-- Video player -->
+    <video id="modalVideo" controls autoplay muted style="display:none;  width:500px; height: 500px;">
+      <source id="modalSource" src="" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Iframe viewer -->
+    <iframe id="modalIframe" src="" frameborder="0" style="display:none; width:100%; height:500px;"></iframe>
+  </div>
+</div>
+
+
+
+ 
+
+
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
