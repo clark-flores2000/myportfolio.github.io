@@ -116,10 +116,11 @@ html, body {
 
 /* Container adjustments */
 .container {
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 15px;
+  max-width: 1200px !important;
+  width: 100% !important;
+  padding: 0 20px !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
 }
 
 /* Responsive header layout */
@@ -141,11 +142,13 @@ html, body {
 }
 
 /* Responsive image sizing */
-.avatar, .avatar2, .avatar3, .avatar31, .avatar4 {
+.avatar, .avatar2, .avatar3, .avatar4, .avatar31 {
+  max-width: 180px;
   width: 100%;
-  max-width: 280px;
-  height: auto;
   border-radius: 10px;
+  margin: 0 10px 10px 0;
+  object-fit: cover;
+  display: inline-block;
 }
 
 .avatar-wrap {
@@ -191,6 +194,7 @@ html, body {
     
 
  
+
 
 
 
