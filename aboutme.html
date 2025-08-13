@@ -134,13 +134,81 @@ updateSnowfall();
   <div class="about-card glass">
     <p>I graduated from Our Lady of Fatima University –  Quezon City, with a Bachelor of Science in Information Technology on July 24, 2025. </p>
   <div class="avatar-wrap">
-    <img src="gradpic.jpg" alt="" class="avatar">
-    <img src="pogi1.jpeg" alt="" class="avatar">
+    <img src="gradpic.jpg" alt="Landscape" class="avatar"onclick="openImageFullscreen(this)">
+    <img src="pogi1.jpeg" alt="Landscape" class="avatar"onclick="openImageFullscreen(this)">
+    <script>
+function openImageFullscreen(img) {
+  // Overlay container
+  let overlay = document.createElement("div");
+  overlay.style.cssText = `
+    position: fixed;
+    top:0; left:0;
+    width:100vw;
+    height:100vh;
+    background:black;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+  `;
+
+  // Wrapper para sa image + close button
+  let wrapper = document.createElement("div");
+  wrapper.style.cssText = `
+    position: relative;
+    max-width: 200%;
+    max-height: 200%;
+  `;
+
+  // Clone ng image
+  let clone = img.cloneNode(true);
+  clone.style.cssText = `
+    width: 200%;
+    height: 200%;
+    object-fit: contain;
+    border-radius: 10px;
+  `;
+
+  // Close button sa taas
+  let closeBtn = document.createElement("button");
+  closeBtn.innerText = "✖";
+  closeBtn.style.cssText = `
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    font-size: 18px;
+  `;
+  closeBtn.onclick = () => overlay.remove();
+
+  // Append lahat
+  wrapper.appendChild(clone);
+  wrapper.appendChild(closeBtn);
+  overlay.appendChild(wrapper);
+  document.body.appendChild(overlay);
+}
+</script>
+
+<style>
+.avatar3 {
+  max-width: 300px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+</style>
+    
   </div>
   <div class="about-content">
     <p>   I was born on June 20, 2000, in the peaceful community of Pondol, Balamban, Cebu, where my journey began.</p>
   </div>
 </div>
+
 
       <br>
        <br>
@@ -151,8 +219,8 @@ updateSnowfall();
   <div class="about-card glass">
     <p>My diploma 😍❤️‍🔥</p>
   <div class="avatar-wrap">
-    <img src="diploma.jpeg" alt="" class="avatar2">
-    <img src="hai.jpeg" alt="" class="avatar2">
+    <img src="diploma.jpeg" alt="Landscape" class="avatar2"onclick="openImageFullscreen(this)">
+    <img src="hai.jpeg" alt="Landscape" class="avatar2"onclick="openImageFullscreen(this)">
   </div>
   <div class="about-content">
     <!-- ibang content dito -->
@@ -168,8 +236,8 @@ updateSnowfall();
   <div class="about-card glass">
     <p>This was the day of our Capstone Defense. I was extremely nervous, but I just thought, ‘Let’s do this—whatever happens, happens! </p>
   <div class="avatar-wrap">
-    <img src="ENVIROSPEAK EXPLORING THE EFFICACY OF VOICE ASSISTANT APPLICATIONS FOR VISUALLY IMPAIRED INDIVIDUALS.png" alt="" class="avatar">
-    <img src="soso.jpeg" alt="" class="avatar2">
+    <img src="ENVIROSPEAK EXPLORING THE EFFICACY OF VOICE ASSISTANT APPLICATIONS FOR VISUALLY IMPAIRED INDIVIDUALS.png" alt="Landscape" class="avatar2"onclick="openImageFullscreen(this)">
+    <img src="soso.jpeg" alt="Landscape" class="avatar2"onclick="openImageFullscreen(this)">
   </div>
   <div class="about-content">
    
@@ -186,8 +254,8 @@ updateSnowfall();
   <div class="about-card glass">
     <p>I completed my On-the-Job Training at Sibol ng Agham at Teknolohiya (SIBAT, Inc.), a non-governmental organization dedicated to advancing appropriate technology and sustainable development. I was assigned to the Administrative Office, where I assisted in managing office records, organizing documents, and providing IT-related support to daily operations.</p>
   <div class="avatar-wrap">
-    <img src="COC-FLORES, CLARK.jpeg" alt="" class="avatar2">
-    <img src="sibat.jpeg" alt="" class="avatar2">
+    <img src="COC-FLORES, CLARK.jpeg" alt="Landscape" class="avatar2"onclick="openImageFullscreen(this)">
+    <img src="sibat.jpeg" alt="Landscape" class="avatar2"onclick="openImageFullscreen(this)">
   </div>
   <div class="about-content">
     <!-- ibang content dito -->
@@ -203,13 +271,13 @@ updateSnowfall();
   <div class="about-card glass">
     <p>My College Friends ❤️‍🔥</p>
   <div class="avatar-wrap">
-    <img src="groupic.jpg" alt="" class="avatar3">
-    <img src="ta.jpeg" alt="" class="avatar3">
+    <img src="groupic.jpg" alt="Landscape" class="avatar2"onclick="openImageFullscreen(this)">
+    <img src="ta.jpeg" alt="Landscape" class="avatar2"onclick="openImageFullscreen(this)">
   </div>
   <br>
 <div class="avatar-wrap">
-    <img src="boys.jpeg" alt="" class="avatar31">
-    <img src="tae.jpeg" alt="" class="avatar31">
+    <img src="boys.jpeg" alt="Landscape" class="avatar2"onclick="openImageFullscreen(this)">
+    <img src="tae.jpeg" alt="Landscape" class="avatar2"onclick="openImageFullscreen(this)">
     
   </div>
   </div>
@@ -372,14 +440,15 @@ document.addEventListener("DOMContentLoaded", () => {
   <div class="about-card glass">
     <p>This is Ma'am Cha, my pretty teacher in our Rizal class. ❤️‍🔥</p>
   <div class="avatar-wrap">
-    <img src="poco.jpeg" alt="" class="avatar4">
-    <img src="poco2.jpeg" alt="" class="avatar4">
+    <img src="poco.jpeg" alt="Landscape" class="avatar2"onclick="openImageFullscreen(this)">
+    <img src="poco2.jpeg" alt="Landscape" class="avatar2"onclick="openImageFullscreen(this)">
     
   </div>
   <div class="about-content">
 
   </div>
 </div>
+
 
 
   
@@ -393,6 +462,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <p>&copy; 2025 Clark Edvard Flores — Built with code & ☕</p>
     </div>
   </footer>
+  
 
 
  
@@ -403,11 +473,3 @@ document.addEventListener("DOMContentLoaded", () => {
   
 </body>
 </html>
-
-
-
-
-
-
-
-
