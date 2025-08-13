@@ -218,6 +218,155 @@ updateSnowfall();
 <br>
 <br>
 
+<div class="about-card glass">
+    <p>We are creating an RJ45 cable in our networking activity, where we learn how to attach the wires and connectors to make a LAN cable used for connecting computers to a network.</p>
+    <div class="avatar-wrap">
+        <video class="avatar3" autoplay muted loop playsinline onclick="openFullscreen(this)">
+            <source src="rj45.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<div class="about-card glass">
+  <p>Working on Arduino projects</p>
+<div class="avatar-wrap">
+  <video class="avatar3" controls autoplay muted loop playsinline>
+    <source src="elec.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <video class="avatar3" autoplay muted loop playsinline onclick="openFullscreen(this)">
+    <source src="elec2.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <video class="avatar3" autoplay muted loop playsinline onclick="openFullscreen(this)">
+    <source src="elec3.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<style>
+/* Hide mute and volume controls in Chrome, Edge, Safari */
+video::-webkit-media-controls-mute-button,
+video::-webkit-media-controls-volume-slider {
+    display: none !important;
+}
+video::-webkit-media-controls-volume-control-container {
+    display: none !important;
+}
+
+/* Optional: make sure it’s still fullscreen clickable */
+video {
+    max-width: 300px; /* example size */
+    border-radius: 10px;
+}
+</style>
+<script>
+function openFullscreen(video) {
+  // Overlay container
+  let overlay = document.createElement("div");
+  overlay.style.cssText = `
+    position: fixed;
+    top:0; left:0;
+    width:100vw;
+    height:100vh;
+    background:black;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+  `;
+  
+  // Wrapper para sa video at button
+  let videoWrapper = document.createElement("div");
+  videoWrapper.style.cssText = `
+    position: relative;
+    max-width:90%;
+    max-height:90%;
+  `;
+
+  // Clone ng video
+  let clone = video.cloneNode(true);
+  clone.style.cssText = `
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    border-radius:10px;
+    display:block;
+  `;
+
+  // Close button (nasa upper-right corner)
+  let closeBtn = document.createElement("button");
+  closeBtn.innerText = "✖";
+  closeBtn.style.cssText = `
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    font-size: 18px;
+  `;
+  closeBtn.onclick = () => overlay.remove();
+
+  // Append lahat
+  videoWrapper.appendChild(clone);
+  videoWrapper.appendChild(closeBtn);
+  overlay.appendChild(videoWrapper);
+  document.body.appendChild(overlay);
+}
+</script>
+
+
+
+    </div>
+</div>
+<br>
+<br>
+<br>
+
+<div class="about-card glass">
+    <p>The truth about me is</p>
+<div class="avatar-wrap">
+    <video class="avatar30" controls playsinline>
+        <source src="man.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+<style>
+/* Optional: para consistent pa rin style niya sa ibang video */
+.avatar30 {
+    max-width: 300px; /* adjust mo size kung gusto mo */
+    border-radius: 10px;
+    object-fit: cover;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const vid = document.querySelector(".avatar-wrap video");
+
+    // Require user interaction para mag-play with sound
+    vid.addEventListener("click", () => {
+        vid.muted = false; // enable sound
+        vid.play();
+    });
+});
+</script>
+    </div>
+</div>
+<br>
+<br>
+<br>
+
 
         
   <div class="about-card glass">
@@ -254,9 +403,6 @@ updateSnowfall();
   
 </body>
 </html>
-
-
-
 
 
 
